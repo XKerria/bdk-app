@@ -1,49 +1,43 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+  <view class="content">
+    <carousel class="carousel" :images="banners.map(i => i.image)" />
+    <image class="logo" src="/static/logo.png"></image>
+    <view>
+      <text class="title">{{ title }}</text>
+    </view>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+import Banner from '@/models/Banner'
 
-		},
-		methods: {
+export default {
+  computed: {
+    banners: () => Banner.all()
+  },
+  data () {
+    return {
+      title: 'Hello'
+    }
+  },
+  onLoad () {
+    Banner.fetch()
+  },
+  methods: {
 
-		}
-	}
+  }
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+<style lang="scss">
+.index {
+  display: flex;
+  flex-direction: column;
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+  .carousel {
+    box-sizing: border-box;
+    width: 100%;
+    height: 300rpx;
+  }
+}
 </style>

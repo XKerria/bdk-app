@@ -58,6 +58,9 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.0-31920210609001",
     "@dcloudio/uni-stat": "^2.0.0-31920210609001",
     "@vue/shared": "^3.0.0",
+    "@vuex-orm/core": "^0.36.4",
+    "@vuex-orm/plugin-axios": "^0.9.4",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
@@ -84,6 +87,8 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
+    "sass": "^1.35.1",
+    "sass-loader": "~10",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
