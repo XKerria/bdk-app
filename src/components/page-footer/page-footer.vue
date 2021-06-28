@@ -8,13 +8,13 @@
       />
       <view class="name" :class="{ 'name-active': current === 'pages/index/index' }">首页</view>
     </view>
-    <view class="action" @click="onClick('/pages/vehicles/vehicles')">
+    <view class="action" @click="onClick('/pages/brands/brands')">
       <image
         class="icon"
-        :src="`/static/icons/car${current === 'pages/vehicles/vehicles' ? '-a' : ''}.png`"
+        :src="`/static/icons/car${current === 'pages/brands/brands' ? '-a' : ''}.png`"
         mode="aspectFit"
       />
-      <view class="name" :class="{ 'name-active': current === 'pages/vehicles/vehicles' }">车辆</view>
+      <view class="name" :class="{ 'name-active': current === 'pages/brands/brands' }">车辆</view>
     </view>
     <view class="action" @click="onClick('/pages/user/user')">
       <image
