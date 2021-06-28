@@ -19,10 +19,10 @@
     <view class="action" @click="onClick('/pages/user/user')">
       <image
         class="icon"
-        :src="`/static/icons/mine${current === 'pages/mine/mine' ? '-a' : ''}.png`"
+        :src="`/static/icons/user${current === 'pages/user/user' ? '-a' : ''}.png`"
         mode="aspectFit"
       />
-      <view class="name" :class="{ 'name-active': current === 'pages/mine/mine' }">我的</view>
+      <view class="name" :class="{ 'name-active': current === 'pages/user/user' }">我的</view>
     </view>
   </view>
 </template>

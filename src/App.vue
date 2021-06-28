@@ -1,7 +1,9 @@
 <script>
+import Wechat from '@/models/Wechat'
 export default {
   onLaunch () {
     uni.login().then(([_, res]) => {
+      Wechat.login(res)
     })
   }
 }

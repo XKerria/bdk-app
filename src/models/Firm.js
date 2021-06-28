@@ -1,4 +1,5 @@
 import BaseModel from './BaseModel'
+import User from './User'
 
 export default class Firm extends BaseModel {
   static entity = 'firms'
