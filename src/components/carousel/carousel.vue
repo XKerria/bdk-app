@@ -50,9 +50,9 @@ export default {
 .carousel {
   width: 100%;
   height: 100%;
+  position: relative;
 
   .swiper {
-    border-radius: 30rpx;
     overflow: hidden;
     .swiper-image {
       width: 100%;
@@ -61,19 +61,21 @@ export default {
   }
 
   .indicators {
-    margin-top: 30rpx;
+    position: absolute;
+    right: 20rpx;
+    bottom: 30rpx;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .indicator {
       box-sizing: border-box;
-      width: 10rpx;
-      height: 10rpx;
-      border-radius: 5rpx;
+      width: 12rpx;
+      height: 12rpx;
+      border-radius: 6rpx;
       transition-property: all;
       transition-duration: 0.3s;
-      background-color: $gray;
+      background-color: rgba(255, 255, 255, 0.6);
     }
 
     .indicator + .indicator {
@@ -81,10 +83,10 @@ export default {
     }
 
     .active {
-      width: 40rpx;
+      width: 48rpx;
       transition-property: all;
       transition-duration: 0.3s;
-      background-image: $primary-gradient;
+      background-color: $white;
     }
   }
 }

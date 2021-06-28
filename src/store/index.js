@@ -6,11 +6,13 @@ import {baseUrl} from '@/config'
 import VuexORM from '@vuex-orm/core'
 import VuexORMAxios from '@vuex-orm/plugin-axios'
 import Banner from '@/models/Banner'
+import Firm from '@/models/Firm'
 
 Vue.use(Vuex)
 const database = new VuexORM.Database()
 
 database.register(Banner)
+database.register(Firm)
 
 VuexORM.use(VuexORMAxios, {
   axios,
