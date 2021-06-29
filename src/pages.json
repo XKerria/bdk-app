@@ -10,10 +10,16 @@
 			"path": "pages/brands/brands"
 		},
 		{
+			"path": "pages/series/series"
+		},
+		{
 			"path": "pages/user/user"
 		},
 		{
 			"path": "pages/vehicles/vehicles"
+		},
+		{
+			"path": "pages/vehicle/add"
 		},
 		{
 			"path": "pages/vehicle/edit"

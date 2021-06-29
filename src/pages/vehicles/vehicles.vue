@@ -10,7 +10,8 @@
       <u-gap height="20" />
       <text class="tip">正在加载...</text>
     </view>
-    <ui-button shape="square">添加车辆</ui-button>
+    <ui-button shape="square" @click="onAddClick">添加车辆</ui-button>
+    <u-toast ref="toast" />
   </view>
 </template>
 
@@ -38,6 +39,9 @@ export default {
   methods: {
     onVehicleClick (vehicle) {
       uni.navigateTo({ url: `/pages/vehicle/edit?id=${vehicle.id}` })
+    },
+    onAddClick (vehicle) {
+      uni.navigateTo({ url: `/pages/vehicle/add` })
     }
   }
 }

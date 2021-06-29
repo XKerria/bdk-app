@@ -25,14 +25,12 @@
 </template>
 
 <script>
-import User from '@/models/User'
+import { mapState } from 'vuex'
 
 export default {
   name: 'actions',
   computed: {
-    user () {
-      return User.current()
-    }
+    ...mapState('current', ['user'])
   },
   methods: {
     onVehicleClick () {

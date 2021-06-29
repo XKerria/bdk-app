@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import User from '@/models/User'
+import { mapState, mapActions } from 'vuex'
 import Firm from '@/models/Firm'
 import Actions from './components/actions.vue'
 import FirmInfo from './components/firm-info.vue'
@@ -39,14 +39,16 @@ export default {
   name: 'user',
   components: { Actions, FirmInfo },
   computed: {
-    user () {
-      return User.current()
-    },
-    firm () {
-      return this.user ? Firm.find(this.user.firm_id) : null
+    ...mapState('current', ['user', 'firm'])
+  },
+  onShow () {
+    if (this.user && !this.firm) {
+      const firm = Firm.find(this.user.firm_id)
+      this.setFirm(firm)
     }
   },
   methods: {
+    ...mapActions('current', ['setFirm']),
     onAuthClick () {
       uni.navigateTo({ url: '/pages/login/login' })
     }

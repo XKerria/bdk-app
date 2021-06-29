@@ -4,7 +4,12 @@
       <u-index-list :scrollTop="scrollTop" :active-color="color">
         <view v-for="(letter, index) in letters" :key="index">
           <u-index-anchor :index="letter" :custom-style="{ color }" />
-          <view class="item" v-for="brand of brands.filter(i => i.letter === letter)" :key="brand.id">
+          <view
+            class="item"
+            v-for="brand of brands.filter(i => i.letter === letter)"
+            :key="brand.id"
+            @click="onBrandClick(brand)"
+          >
             <image class="logo" :src="brand.logo" mode="aspectFill" />
             <text class="name">{{ brand.name }}</text>
           </view>
@@ -22,6 +27,7 @@
 
 <script>
 import Brand from '@/models/Brand'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'brands',
@@ -42,6 +48,13 @@ export default {
 
   onPageScroll (e) {
     this.scrollTop = e.scrollTop;
+  },
+  methods: {
+    ...mapActions('current', ['setBrand']),
+    onBrandClick (brand) {
+      this.setBrand(brand)
+      uni.navigateTo({ url: `/pages/series/series?brandId=${brand.id}` })
+    }
   }
 }
 </script>

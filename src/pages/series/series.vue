@@ -1,0 +1,93 @@
+<template>
+  <view class="series">
+    <view class="item" v-for="item of series" :key="item.id" @click="onItemClick(item)">
+      <view class="info">
+        <image class="image" :src="item.image" mode="aspectFill" />
+        <view class="name">{{ item.name }}</view>
+      </view>
+      <u-icon name="arrow-right" color="#999" />
+    </view>
+  </view>
+</template>
+
+<script>
+import Series from '@/models/Series'
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'series',
+  computed: {
+    series () {
+      return this.brandId ? Series.query().where('brand_id', this.brandId).get() : []
+    }
+  },
+  data () {
+    return {
+      brandId: null
+    }
+  },
+  onLoad (options) {
+    const { brandId } = options
+    if (!brandId) {
+      uni.navigateBack()
+      return
+    }
+    this.brandId = brandId
+    Series.fetchByBrandId(brandId)
+  },
+  methods: {
+    ...mapActions('current', ['setSeries']),
+    check () {
+      const pages = getCurrentPages()
+      if (pages.length >= 3) {
+        const from = pages[pages.length - 3]
+        if (from.$page.fullPath === '/pages/vehicle/add') {
+          uni.navigateBack({ delta: 2 })
+        }
+      }
+    },
+    onItemClick (item) {
+      this.setSeries(item)
+      this.check()
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.series {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  padding: 30rpx;
+  background-color: $white;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    padding: 20rpx 0;
+
+    .info {
+      display: flex;
+      align-items: center;
+
+      .image {
+        width: 284rpx;
+        height: 160rpx;
+        border-radius: 14rpx;
+      }
+
+      .name {
+        margin-left: 16rpx;
+        font-size: 32rpx;
+      }
+    }
+  }
+
+  .item + .item {
+    border-top: 1rpx solid $border-color-base;
+  }
+}
+</style>

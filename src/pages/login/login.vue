@@ -11,13 +11,14 @@
       </u-form>
     </view>
 
-    <ui-button shape="square" @click="onLoginClick">登录</ui-button>
+    <ui-button shape="square" @click="$u.throttle(login, 2000)">登录</ui-button>
 
-    <u-toast ref="toast"></u-toast>
+    <u-toast ref="toast" />
   </view>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import User from '@/models/User'
 
 export default {
@@ -44,10 +45,15 @@ export default {
     this.$refs.form.setRules(this.rules);
   },
   methods: {
-    onLoginClick () {
+    ...mapActions('current', ['setUser']),
+    login () {
       this.$refs.form.validate(valid => {
         if (valid) {
-          User.login(this.form).then(() => {
+          User.login(this.form).then((res) => {
+            console.log(res)
+            const { entities } = res
+            const [user] = entities.users
+            this.setUser(user)
             this.$refs.toast.show({ title: '登录成功', type: 'success', back: true })
           }).catch(e => {
             if (e && e.response && e.response.status === 422) {
