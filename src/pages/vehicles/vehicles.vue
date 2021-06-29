@@ -40,7 +40,7 @@ export default {
     onVehicleClick (vehicle) {
       uni.navigateTo({ url: `/pages/vehicle/edit?id=${vehicle.id}` })
     },
-    onAddClick (vehicle) {
+    onAddClick () {
       uni.navigateTo({ url: `/pages/vehicle/add` })
     }
   }

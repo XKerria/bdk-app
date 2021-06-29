@@ -7,13 +7,13 @@
     </view>
     <view class="nums">
       <view class="num">
-        <text>在租车辆</text>
+        <text>车辆总数</text>
         <u-gap height="14" />
-        <text>{{ firm.remain }} 辆</text>
+        <text>{{ firm.amount }} 辆</text>
       </view>
       <view class="divider"></view>
       <view class="num">
-        <text>今日已租</text>
+        <text>车辆剩余</text>
         <u-gap height="14" />
         <text>{{ firm.remain }} 辆</text>
       </view>
