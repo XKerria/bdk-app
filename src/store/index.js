@@ -11,15 +11,17 @@ import Brand from '@/models/Brand'
 import Banner from '@/models/Banner'
 import User from '@/models/User'
 import Firm from '@/models/Firm'
+import Vehicle from '@/models/Vehicle'
 
 Vue.use(Vuex)
 const database = new VuexORM.Database()
 
+database.register(User, 'user')
 database.register(Wechat)
 database.register(Brand)
 database.register(Banner)
-database.register(User)
 database.register(Firm)
+database.register(Vehicle)
 
 VuexORM.use(VuexORMAxios, {
   axios,
@@ -28,10 +30,11 @@ VuexORM.use(VuexORMAxios, {
 
 const vuexPersisted = new createPersistedState({
   storage: {
-      getItem: key => uni.getStorageSync(key),
-      setItem: (key, value) => uni.setStorageSync(key, value),
-      removeItem: key => uni.removeStorageSync(key)
-  }
+    getItem: key => uni.getStorageSync(key),
+    setItem: (key, value) => uni.setStorageSync(key, value),
+    removeItem: key => uni.removeStorageSync(key)
+  },
+  paths: ['entities.users']
 })
 
 export default new Vuex.Store({
