@@ -1,5 +1,5 @@
 <template>
-  <view class="vehicle-item">
+  <view class="vehicle-item" @click="onClick">
     <view class="wrapper">
       <image class="image" :src="vehicle.series.image" mode="aspectFill" />
       <view class="info">
@@ -21,6 +21,11 @@ export default {
     vehicle: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    onClick () {
+      this.$emit('click')
     }
   }
 }

@@ -2,7 +2,7 @@
   <view class="vehicles">
     <view v-if="vehicles.length" class="container">
       <view class="vehicle" v-for="item of vehicles" :key="item.id">
-        <vehicle-item :vehicle="item" />
+        <vehicle-item :vehicle="item" @click="onVehicleClick(item)" />
       </view>
     </view>
     <view class="loading" v-else>
@@ -34,6 +34,11 @@ export default {
   onLoad (options) {
     this.firmId = options.firmId
     if (this.firmId) Vehicle.fetchByFirmId(this.firmId)
+  },
+  methods: {
+    onVehicleClick (vehicle) {
+      uni.navigateTo({ url: `/pages/vehicle/update?id=${vehicle.id}` })
+    }
   }
 }
 </script>

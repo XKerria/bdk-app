@@ -16,6 +16,9 @@
 			"path": "pages/vehicles/vehicles"
 		},
 		{
+			"path": "pages/vehicle/update"
+		},
+		{
 			"path": "pages/login/login"
 		}
 	],
