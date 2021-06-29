@@ -13,6 +13,9 @@
 			"path": "pages/user/user"
 		},
 		{
+			"path": "pages/vehicles/vehicles"
+		},
+		{
 			"path": "pages/login/login"
 		}
 	],

@@ -1,0 +1,74 @@
+<template>
+  <view class="actions">
+    <view class="action" @click="onVehicleClick">
+      <view class="action-inner">
+        <image class="icon" src="/static/icons/vehicle.png" />
+        <text class="text">我的车辆</text>
+      </view>
+      <u-icon name="arrow-right" color="#e4e4e4" />
+    </view>
+    <view class="action">
+      <view class="action-inner">
+        <image class="icon" src="/static/icons/firm.png" />
+        <text class="text">公司信息</text>
+      </view>
+      <u-icon name="arrow-right" color="#e4e4e4" />
+    </view>
+    <view class="action">
+      <view class="action-inner">
+        <image class="icon" src="/static/icons/service.png" />
+        <text class="text">联系客服</text>
+      </view>
+      <u-icon name="arrow-right" color="#e4e4e4" />
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  name: 'actions',
+  methods: {
+    onVehicleClick () {
+      uni.navigateTo({ url: '/pages/vehicles/vehicles' })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.actions {
+  padding: 0 30rpx;
+  background-color: $white;
+  border-radius: 18rpx;
+  box-shadow: 0 0 14rpx 0 rgba(0, 0, 0, 0.1);
+
+  .action {
+    padding: 30rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: $text-color-base;
+
+    .action-inner {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        height: 36rpx;
+        width: 36rpx;
+        object-position: center;
+        object-fit: contain;
+      }
+
+      .text {
+        margin-left: 20rpx;
+      }
+    }
+  }
+
+  .action + .action {
+    border-top: 1rpx solid $border-color-base;
+  }
+}
+</style>
