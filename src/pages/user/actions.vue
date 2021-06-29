@@ -2,21 +2,21 @@
   <view class="actions">
     <view class="action" @click="onVehicleClick">
       <view class="action-inner">
-        <image class="icon" src="/static/icons/vehicle.png" />
+        <image class="icon" src="/static/icons/vehicle.png" mode="aspectFit" />
         <text class="text">我的车辆</text>
       </view>
       <u-icon name="arrow-right" color="#e4e4e4" />
     </view>
     <view class="action">
       <view class="action-inner">
-        <image class="icon" src="/static/icons/firm.png" />
+        <image class="icon" src="/static/icons/firm.png" mode="aspectFit" />
         <text class="text">公司信息</text>
       </view>
       <u-icon name="arrow-right" color="#e4e4e4" />
     </view>
     <view class="action">
       <view class="action-inner">
-        <image class="icon" src="/static/icons/service.png" />
+        <image class="icon" src="/static/icons/service.png" mode="aspectFit" />
         <text class="text">联系客服</text>
       </view>
       <u-icon name="arrow-right" color="#e4e4e4" />
@@ -25,11 +25,19 @@
 </template>
 
 <script>
+import User from '@/models/User'
+
 export default {
   name: 'actions',
+  computed: {
+    user () {
+      return User.current()
+    }
+  },
   methods: {
     onVehicleClick () {
-      uni.navigateTo({ url: '/pages/vehicles/vehicles' })
+      if (!this.user.firm_id) return
+      uni.navigateTo({ url: `/pages/vehicles/vehicles?firmId=${this.user.firm_id}` })
     }
   }
 }
@@ -57,8 +65,6 @@ export default {
       .icon {
         height: 36rpx;
         width: 36rpx;
-        object-position: center;
-        object-fit: contain;
       }
 
       .text {

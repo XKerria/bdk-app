@@ -5,7 +5,7 @@
         <view v-for="(letter, index) in letters" :key="index">
           <u-index-anchor :index="letter" :custom-style="{ color }" />
           <view class="item" v-for="brand of brands.filter(i => i.letter === letter)" :key="brand.id">
-            <image class="logo" :src="brand.logo" />
+            <image class="logo" :src="brand.logo" mode="aspectFill" />
             <text class="name">{{ brand.name }}</text>
           </view>
         </view>
@@ -77,8 +77,6 @@ export default {
   .logo {
     height: 68rpx;
     width: 68rpx;
-    object-fit: cover;
-    object-position: center;
   }
 
   .name {

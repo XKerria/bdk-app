@@ -1,6 +1,6 @@
 <template>
   <view class="firm-item">
-    <image class="image" :src="item.image" />
+    <image class="image" :src="item.image" mode="aspectFill" />
     <view class="wrapper">
       <view class="name">
         <clamp>{{ item.name }}</clamp>
@@ -38,8 +38,6 @@ export default {
   align-items: center;
 
   .image {
-    object-fit: cover;
-    object-position: center;
     width: 140rpx;
     height: 140rpx;
     border-radius: 6rpx;
