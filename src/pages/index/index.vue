@@ -29,9 +29,9 @@
 <script>
 import Banner from '@/models/Banner'
 import Firm from '@/models/Firm'
-import FirmList from './firm-list'
-import BtnVehicle from './btn-vehicle'
-import BtnBlacklist from './btn-blacklist'
+import FirmList from './components/firm-list'
+import BtnVehicle from './components/btn-vehicle'
+import BtnBlacklist from './components/btn-blacklist'
 
 export default {
   components: { FirmList, BtnVehicle, BtnBlacklist },

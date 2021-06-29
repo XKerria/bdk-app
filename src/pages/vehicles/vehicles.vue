@@ -16,7 +16,7 @@
 
 <script>
 import Vehicle from '@/models/Vehicle'
-import VehicleItem from './vehicle-item.vue'
+import VehicleItem from './components/vehicle-item.vue'
 
 export default {
   name: 'vehicles',

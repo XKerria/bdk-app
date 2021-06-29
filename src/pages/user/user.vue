@@ -32,8 +32,8 @@
 <script>
 import User from '@/models/User'
 import Firm from '@/models/Firm'
-import Actions from './actions.vue'
-import FirmInfo from './firm-info.vue'
+import Actions from './components/actions.vue'
+import FirmInfo from './components/firm-info.vue'
 
 export default {
   name: 'user',
