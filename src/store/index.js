@@ -1,6 +1,7 @@
 import axios from '@/utils/axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 import {baseUrl} from '@/config'
 
 import VuexORM from '@vuex-orm/core'
@@ -25,6 +26,17 @@ VuexORM.use(VuexORMAxios, {
   baseURL: baseUrl
 })
 
+const vuexPersisted = new createPersistedState({
+  storage: {
+      getItem: key => uni.getStorageSync(key),
+      setItem: (key, value) => uni.setStorageSync(key, value),
+      removeItem: key => uni.removeStorageSync(key)
+  }
+})
+
 export default new Vuex.Store({
-  plugins: [VuexORM.install(database)]
+  plugins: [
+    VuexORM.install(database),
+    vuexPersisted
+  ]
 })
