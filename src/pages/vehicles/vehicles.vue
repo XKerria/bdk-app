@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     onVehicleClick (vehicle) {
-      uni.navigateTo({ url: `/pages/vehicle/update?id=${vehicle.id}` })
+      uni.navigateTo({ url: `/pages/vehicle/edit?id=${vehicle.id}` })
     }
   }
 }

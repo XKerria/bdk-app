@@ -1,5 +1,5 @@
 <template>
-  <view class="vehicle-update">
+  <view class="vehicle-edit">
     <view class="container" v-if="vehicle">
       <view class="view">
         <image class="image" :src="vehicle && vehicle.series.image" mode="aspectFill" />
@@ -34,7 +34,7 @@
 import Vehicle from '@/models/Vehicle'
 
 export default {
-  name: 'vehicle-update',
+  name: 'vehicle-edit',
   computed: {
     rules () {
       return {
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.vehicle-update {
+.vehicle-edit {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
