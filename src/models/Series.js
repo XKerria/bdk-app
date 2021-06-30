@@ -14,6 +14,6 @@ export default class Series extends BaseModel {
   }
 
   static fetchByBrandId (brandId) {
-    return this.api().get(`/brands/${brandId}/series`)
+    return this.api().get(`/api/client/brands/${brandId}/series`)
   }
 }

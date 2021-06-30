@@ -3,7 +3,8 @@ const env = process.env.NODE_ENV
 const map = {
   // development: 'http://bdk-service.test/api/client',
   // production: 'https://bdk.yjtcloud.com/api/client'
-  development: 'http://localhost:2080',
+  // development: 'http://localhost:2080',
+  development: 'https://bdk.yjtcloud.com',
   production: 'https://bdk.yjtcloud.com'
 }
 

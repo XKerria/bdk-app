@@ -16,10 +16,10 @@ export default class Vehicle extends BaseModel {
   }
 
   static fetchByFirmId (id) {
-    return this.api().get(`/firms/${id}/vehicles`)
+    return this.api().get(`/api/client/firms/${id}/vehicles`)
   }
 
   static fetchBySeriesId (id) {
-    return this.api().get(`/series/${id}/vehicles`)
+    return this.api().get(`/api/client/series/${id}/vehicles`)
   }
 }

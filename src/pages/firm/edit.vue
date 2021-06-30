@@ -23,6 +23,7 @@
     </u-form>
     <u-gap height="80" />
     <ui-button @click="$u.throttle(submit, 2000)">提交</ui-button>
+    <!-- <view>{{ error }}</view> -->
     <u-toast ref="toast" />
   </view>
 </template>
@@ -63,7 +64,8 @@ export default {
         fontSize: '28rpx',
         color: '#999',
         width: '150rpx'
-      }
+      },
+      error: ''
     }
   },
   onLoad () {
@@ -80,7 +82,8 @@ export default {
         return cloud.upload(tempFilePaths[0])
       }).then(url => {
         this.form.logo = url
-      }).catch(() => {
+      }).catch((e) => {
+        this.error = JSON.stringify(e)
         this.$refs.toast.show({ title: '上传失败', type: 'error' })
       })
     },
