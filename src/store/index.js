@@ -15,6 +15,7 @@ import Series from '@/models/Series'
 import User from '@/models/User'
 import Firm from '@/models/Firm'
 import Vehicle from '@/models/Vehicle'
+import Black from '@/models/Black'
 
 Vue.use(Vuex)
 const database = new VuexORM.Database()
@@ -26,6 +27,7 @@ database.register(Series)
 database.register(Banner)
 database.register(Firm)
 database.register(Vehicle)
+database.register(Black)
 
 VuexORM.use(VuexORMAxios, {axios})
 

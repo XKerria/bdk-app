@@ -1,5 +1,5 @@
 <template>
-  <view class="btn-blacklist">
+  <view class="btn-blacklist" @click="onClick">
     <view class="title">黑名单</view>
     <view class="services">
       <text>添加黑名单</text>
@@ -10,8 +10,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'btn-vehicle'
+  name: 'btn-vehicle',
+  computed: {
+    ...mapState('auth', ['user'])
+  },
+  methods: {
+    onClick () {
+      if (this.user) {
+        uni.navigateTo({ url: '/pages/black/list' })
+      } else {
+        uni.navigateTo({ url: '/pages/login/login' })
+      }
+    }
+  }
 }
 </script>
 

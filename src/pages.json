@@ -37,6 +37,15 @@
 			"path": "pages/vehicle/edit"
 		},
 		{
+			"path": "pages/black/list"
+		},
+		{
+			"path": "pages/black/view"
+		},
+		{
+			"path": "pages/black/add"
+		},
+		{
 			"path": "pages/login/login"
 		}
 	],
