@@ -1,18 +1,15 @@
 <template>
   <view class="login">
-    <view class="container">
-      <u-form ref="form" label-width="150" :model="form" :label-style="{ fontSize: '28rpx' }" :error-type="['message']">
-        <u-form-item label="手机号" prop="phone">
-          <u-input v-model="form.phone" />
-        </u-form-item>
-        <u-form-item label="密码" prop="password">
-          <u-input v-model="form.password" type="password" password-icon />
-        </u-form-item>
-      </u-form>
-    </view>
-
-    <ui-button shape="square" @click="$u.throttle(login, 2000)">登录</ui-button>
-
+    <u-form ref="form" label-width="150" :model="form" :label-style="{ fontSize: '28rpx' }" :error-type="['message']">
+      <u-form-item label="手机号" prop="phone">
+        <u-input v-model="form.phone" />
+      </u-form-item>
+      <u-form-item label="密码" prop="password">
+        <u-input v-model="form.password" type="password" password-icon />
+      </u-form-item>
+    </u-form>
+    <u-gap height="100" />
+    <ui-button @click="$u.throttle(login, 2000)">登录</ui-button>
     <u-toast ref="toast" />
   </view>
 </template>
@@ -75,16 +72,7 @@ export default {
   width: 100vw;
   display: flex;
   flex-direction: column;
-
-  .container {
-    flex: 1;
-    padding: 40rpx;
-  }
-
-  .btn {
-    width: 100vw;
-    height: 88rpx;
-    background-image: $primary-gradient;
-  }
+  padding: 30rpx;
+  background-color: $white;
 }
 </style>

@@ -1,6 +1,9 @@
 import Axios from 'axios'
+import {baseUrl} from '@/config'
 
-const axios = Axios.create()
+const axios = Axios.create({
+    baseURL: baseUrl
+})
 
 axios.defaults.adapter = function( config ) {
   return new Promise( ( resolve , reject ) => {

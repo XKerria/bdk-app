@@ -2,7 +2,6 @@ import axios from '@/utils/axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from "vuex-persistedstate";
-import {baseUrl} from '@/config'
 
 import auth from './auth'
 import current from './current'
@@ -28,10 +27,7 @@ database.register(Banner)
 database.register(Firm)
 database.register(Vehicle)
 
-VuexORM.use(VuexORMAxios, {
-  axios,
-  baseURL: baseUrl
-})
+VuexORM.use(VuexORMAxios, {axios})
 
 const vuexPersisted = new createPersistedState({
   storage: {

@@ -14,7 +14,7 @@ export default class User extends Model {
   }
 
   static login (data) {
-    return this.api().post('/auth/login', data)
+    return this.api().post('/api/client/auth/login', data)
   }
 
   static current() {

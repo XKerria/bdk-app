@@ -1,6 +1,16 @@
 <template>
   <view class="firm-edit">
     <u-form :model="form" ref="form" :label-style="labelStyle" label-width="150">
+      <view @click="onLogoPick">
+        <u-form-item label="LOGO" right-icon="arrow-right">
+          <image v-if="form.logo" class="logo" :src="form.logo" mode="aspectFill" />
+        </u-form-item>
+      </view>
+      <view @click="onImagePick">
+        <u-form-item label="门头照片" prop="image" right-icon="arrow-right">
+          <image v-if="form.image" class="image" :src="form.image" mode="aspectFill" />
+        </u-form-item>
+      </view>
       <u-form-item label="公司名称" prop="name">
         <u-input v-model="form.name" placeholder="公司名称" />
       </u-form-item>
@@ -20,6 +30,8 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import Firm from '@/models/Firm'
+import cloud from '@/libs/Cloud'
+import { chooseImage } from '@/utils/promize'
 
 const rules = {
   name: [
@@ -63,6 +75,24 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['setFirm']),
+    onLogoPick () {
+      chooseImage().then(({ tempFilePaths }) => {
+        return cloud.upload(tempFilePaths[0])
+      }).then(url => {
+        this.form.logo = url
+      }).catch(() => {
+        this.$refs.toast.show({ title: '上传失败', type: 'error' })
+      })
+    },
+    onImagePick () {
+      chooseImage().then(({ tempFilePaths }) => {
+        return cloud.upload(tempFilePaths[0])
+      }).then(url => {
+        this.form.image = url
+      }).catch(() => {
+        this.$refs.toast.show({ title: '上传失败', type: 'error' })
+      })
+    },
     submit () {
       this.$refs.form.validate(valid => {
         if (valid) {
@@ -83,5 +113,14 @@ export default {
   width: 100vw;
   background-color: $white;
   padding: 30rpx;
+
+  .logo {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .image {
+    width: 320rpx;
+    height: 180rpx;
+  }
 }
 </style>

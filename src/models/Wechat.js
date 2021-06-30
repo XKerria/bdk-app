@@ -13,14 +13,14 @@ export default class Wechat extends Model {
   }
 
   static decrypt (data) {
-    return this.api().post('/wechat/decrypt', data)
+    return this.api().post('/api/client/wechat/decrypt', data)
   }
 
   static login (data) {
-    return this.api().post('/wechat/login', data)
+    return this.api().post('/api/client/wechat/login', data)
   }
 
   static register (data) {
-    return this.api().post('/wechat/register', data)
+    return this.api().post('/api/client/wechat/register', data)
   }
 }

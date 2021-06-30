@@ -8,6 +8,7 @@ export default class Firm extends BaseModel {
     return {
       id: this.attr(null),
       name: this.attr(''),
+      logo: this.attr(''),
       image: this.attr(''),
       phone: this.attr(''),
       address: this.attr(''),
