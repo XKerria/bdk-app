@@ -30,7 +30,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'actions',
   computed: {
-    ...mapState('current', ['user'])
+    ...mapState('auth', ['user'])
   },
   methods: {
     onVehicleClick () {

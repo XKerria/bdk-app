@@ -45,12 +45,11 @@ export default {
     this.$refs.form.setRules(this.rules);
   },
   methods: {
-    ...mapActions('current', ['setUser']),
+    ...mapActions('auth', ['setUser']),
     login () {
       this.$refs.form.validate(valid => {
         if (valid) {
           User.login(this.form).then((res) => {
-            console.log(res)
             const { entities } = res
             const [user] = entities.users
             this.setUser(user)

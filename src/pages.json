@@ -7,6 +7,12 @@
 			"path": "pages/index/index"
 		},
 		{
+			"path": "pages/firm/list"
+		},
+		{
+			"path": "pages/firm/view"
+		},
+		{
 			"path": "pages/brands/brands"
 		},
 		{

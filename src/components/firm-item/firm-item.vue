@@ -1,0 +1,79 @@
+<template>
+  <view class="firm-item" @click="onClick">
+    <image class="image" :src="item.image" mode="aspectFill" />
+    <view class="wrapper">
+      <view class="name">
+        <clamp>{{ item.name }}</clamp>
+      </view>
+      <view class="brands">
+        <tag class="tag" v-for="(brand, index) of item.brands.slice(0, 3)" :key="index">
+          {{ brand }}
+        </tag>
+      </view>
+      <view class="remain">
+        <text>今日余车：</text>
+        <text class="num">{{ item.remain }}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+
+export default {
+  name: 'firm-item',
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    onClick () {
+      this.$emit('click', this.item)
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.firm-item {
+  display: flex;
+  padding: 30rpx;
+  align-items: center;
+  background: $white;
+  border-radius: 18rpx;
+  box-shadow: 0 0 14rpx 0 rgba(0, 0, 0, 0.1);
+
+  .image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 6rpx;
+  }
+
+  .wrapper {
+    flex: 1;
+    padding-left: 33rpx;
+    .name {
+      font-size: 32rpx;
+    }
+
+    .brands {
+      margin: 12rpx 0;
+      display: flex;
+      .tag + .tag {
+        margin-left: 16rpx;
+      }
+    }
+
+    .remain {
+      font-size: 28rpx;
+      .num {
+        font-size: 36rpx;
+        color: $primary-color;
+        letter-spacing: 4rpx;
+      }
+    }
+  }
+}
+</style>

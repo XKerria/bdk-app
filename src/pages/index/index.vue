@@ -7,13 +7,16 @@
       <carousel class="carousel" :images="banners.map(i => i.image)" />
 
       <u-gap height="50" />
-      <section-title>租赁公司</section-title>
+      <ui-title>
+        <text>租赁公司</text>
+        <view slot="extra" @click="onMoreFirmsClick">查看更多</view>
+      </ui-title>
 
       <u-gap height="30" />
       <firm-list :data="firms.slice(0, 2)" />
 
       <u-gap height="50" />
-      <section-title>为您推荐</section-title>
+      <ui-title>为您推荐</ui-title>
 
       <u-gap height="30" />
       <view class="cards">
@@ -47,6 +50,11 @@ export default {
   onLoad () {
     Banner.fetch()
     Firm.fetch()
+  },
+  methods: {
+    onMoreFirmsClick () {
+      uni.navigateTo({ url: '/pages/firm/list' })
+    }
   }
 }
 </script>

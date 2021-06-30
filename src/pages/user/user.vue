@@ -39,7 +39,7 @@ export default {
   name: 'user',
   components: { Actions, FirmInfo },
   computed: {
-    ...mapState('current', ['user', 'firm'])
+    ...mapState('auth', ['user', 'firm'])
   },
   onShow () {
     if (this.user && !this.firm) {
@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('current', ['setFirm']),
+    ...mapActions('auth', ['setFirm']),
     onAuthClick () {
       uni.navigateTo({ url: '/pages/login/login' })
     }

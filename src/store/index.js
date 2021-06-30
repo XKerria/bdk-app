@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import createPersistedState from "vuex-persistedstate";
 import {baseUrl} from '@/config'
 
+import auth from './auth'
 import current from './current'
 
 import VuexORM from '@vuex-orm/core'
@@ -38,12 +39,13 @@ const vuexPersisted = new createPersistedState({
     setItem: (key, value) => uni.setStorageSync(key, value),
     removeItem: key => uni.removeStorageSync(key)
   },
-  paths: ['current.user', 'current.firm']
+  paths: ['auth']
 })
 
 export default new Vuex.Store({
   modules: {
-    current,
+    auth,
+    current
   },
   plugins: [
     VuexORM.install(database),
