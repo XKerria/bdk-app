@@ -57,6 +57,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
+  box-shadow: $shadow;
 
   .action {
     display: flex;
