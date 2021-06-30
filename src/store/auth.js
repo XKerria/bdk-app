@@ -18,6 +18,10 @@ const actions = {
   },
   setFirm({commit}, obj) {
     commit('set_firm', obj)
+  },
+  logout ({commit}) {
+    commit('set_user', null)
+    commit('set_firm', null)
   }
 }
 

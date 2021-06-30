@@ -20,6 +20,8 @@
         <firm-info v-if="firm" :firm="firm" />
         <u-gap height="40" />
         <actions v-if="firm" />
+        <u-gap height="40" />
+        <ui-button @click="onLogoutClick">退出登录</ui-button>
       </view>
 
       <ui-button v-else @click="onAuthClick">点击登录</ui-button>
@@ -48,9 +50,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['setFirm']),
+    ...mapActions('auth', ['setFirm', 'logout']),
     onAuthClick () {
       uni.navigateTo({ url: '/pages/login/login' })
+    },
+    onLogoutClick () {
+      this.logout()
     }
   }
 }
