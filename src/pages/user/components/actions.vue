@@ -7,7 +7,7 @@
       </view>
       <u-icon name="arrow-right" color="#e4e4e4" />
     </view>
-    <view class="action">
+    <view class="action" @click="onFirmEditClick">
       <view class="action-inner">
         <image class="icon" src="/static/icons/firm.png" mode="aspectFit" />
         <text class="text">公司信息</text>
@@ -36,6 +36,9 @@ export default {
     onVehicleClick () {
       if (!this.user.firm_id) return
       uni.navigateTo({ url: `/pages/vehicles/vehicles?firmId=${this.user.firm_id}` })
+    },
+    onFirmEditClick () {
+      uni.navigateTo({ url: `/pages/firm/edit` })
     }
   }
 }
@@ -46,7 +49,7 @@ export default {
   padding: 0 30rpx;
   background-color: $white;
   border-radius: 18rpx;
-  box-shadow: 0 0 14rpx 0 rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
 
   .action {
     padding: 30rpx 0;

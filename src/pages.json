@@ -13,6 +13,9 @@
 			"path": "pages/firm/view"
 		},
 		{
+			"path": "pages/firm/edit"
+		},
+		{
 			"path": "pages/brands/brands"
 		},
 		{

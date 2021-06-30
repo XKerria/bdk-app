@@ -1,9 +1,7 @@
 <template>
   <view class="firm-info">
     <view class="adjust">
-      <text decode>&nbsp;</text>
-      <text>调整</text>
-      <u-icon name="arrow-right" />
+      <text>{{ firm.name }}</text>
     </view>
     <view class="nums">
       <view class="num">
@@ -39,15 +37,13 @@ export default {
   border-radius: 18rpx;
   background-color: $primary-color;
   color: $white;
-  box-shadow: 0 0 14rpx 0 rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
 
   .adjust {
     padding: 20rpx 0;
     border-bottom: 1rpx solid rgba(255, 255, 255, 0.2);
     font-size: 32rpx;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
   }
 
   .nums {
