@@ -1,10 +1,15 @@
 <script>
 import Wechat from '@/models/Wechat'
+import Banner from '@/models/Banner'
+import Firm from '@/models/Firm'
+
 export default {
   onLaunch () {
     uni.login().then(([_, res]) => {
       Wechat.login(res)
     })
+    Banner.fetch()
+    Firm.fetch()
   }
 }
 </script>

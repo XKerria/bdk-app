@@ -9,7 +9,7 @@ export default class Series extends BaseModel {
       name: this.attr(''),
       price: this.attr(''),
       image: this.attr(''),
-      brand_id: this.attr(null)
+      brand_id: this.attr(null),
     }
   }
 

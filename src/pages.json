@@ -16,7 +16,10 @@
 			"path": "pages/brands/brands"
 		},
 		{
-			"path": "pages/series/series"
+			"path": "pages/series/list"
+		},
+		{
+			"path": "pages/series/view"
 		},
 		{
 			"path": "pages/user/user"

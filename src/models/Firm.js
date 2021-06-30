@@ -1,4 +1,5 @@
 import BaseModel from './BaseModel'
+import Vehicle from './Vehicle'
 
 export default class Firm extends BaseModel {
   static entity = 'firms'
@@ -14,7 +15,8 @@ export default class Firm extends BaseModel {
       created_at: this.attr(''),
       updated_at: this.attr(''),
       amount: this.attr(0),
-      remain: this.attr(0)
+      remain: this.attr(0),
+      vehicles: this.hasMany(Vehicle, 'firm_id')
     }
   }
 }

@@ -53,7 +53,7 @@ export default {
     ...mapActions('current', ['setBrand']),
     onBrandClick (brand) {
       this.setBrand(brand)
-      uni.navigateTo({ url: `/pages/series/series?brandId=${brand.id}` })
+      uni.navigateTo({ url: `/pages/series/list?brandId=${brand.id}` })
     }
   }
 }

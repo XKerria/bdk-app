@@ -1,5 +1,5 @@
 <template>
-  <view class="series">
+  <view class="series-list">
     <view class="item" v-for="item of series" :key="item.id" @click="onItemClick(item)">
       <view class="info">
         <image class="image" :src="item.image" mode="aspectFill" />
@@ -15,10 +15,10 @@ import Series from '@/models/Series'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'series',
+  name: 'series-list',
   computed: {
     series () {
-      return this.brandId ? Series.query().where('brand_id', this.brandId).get() : []
+      return this.brandId ? Series.query().where('brand_id', this.brandId).with('brand').get() : []
     }
   },
   data () {
@@ -37,25 +37,25 @@ export default {
   },
   methods: {
     ...mapActions('current', ['setSeries']),
-    check () {
+    check (item) {
       const pages = getCurrentPages()
-      if (pages.length >= 3) {
-        const from = pages[pages.length - 3]
-        if (from.$page.fullPath === '/pages/vehicle/add') {
-          uni.navigateBack({ delta: 2 })
-        }
+      const from = pages.length >= 3 ? pages[pages.length - 3] : null
+      if (from && from.$page.fullPath === '/pages/vehicle/add') {
+        uni.navigateBack({ delta: 2 })
+      } else {
+        uni.navigateTo({ url: `/pages/series/view?id=${item.id}` })
       }
     },
     onItemClick (item) {
       this.setSeries(item)
-      this.check()
+      this.check(item)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.series {
+.series-list {
   height: 100vh;
   width: 100vw;
   overflow-y: auto;

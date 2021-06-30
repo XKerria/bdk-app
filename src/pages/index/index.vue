@@ -1,15 +1,12 @@
 <template>
   <view class="index">
     <view class="container">
-      <search placeholder="搜索您想要的车型" />
-
-      <u-gap height="40" />
       <carousel class="carousel" :images="banners.map(i => i.image)" />
 
       <u-gap height="50" />
       <ui-title>
         <text>租赁公司</text>
-        <view slot="extra" @click="onMoreFirmsClick">查看更多</view>
+        <view slot="extra" @click="onMoreFirmsClick">更多公司</view>
       </ui-title>
 
       <u-gap height="30" />
@@ -46,10 +43,6 @@ export default {
     return {
       title: 'Hello'
     }
-  },
-  onLoad () {
-    Banner.fetch()
-    Firm.fetch()
   },
   methods: {
     onMoreFirmsClick () {

@@ -10,11 +10,16 @@ export default class Vehicle extends BaseModel {
       remain: this.attr(0),
       series: this.attr(null),
       series_id: this.attr(null),
-      firm_id: this.attr(null)
+      firm_id: this.attr(null),
+      firm: this.attr(null)
     }
   }
 
   static fetchByFirmId (id) {
     return this.api().get(`/firms/${id}/vehicles`)
+  }
+
+  static fetchBySeriesId (id) {
+    return this.api().get(`/series/${id}/vehicles`)
   }
 }

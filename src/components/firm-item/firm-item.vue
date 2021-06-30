@@ -1,5 +1,5 @@
 <template>
-  <view class="firm-item" @click="onClick">
+  <view class="firm-item" :class="{ inner }" @click="onClick">
     <image class="image" :src="item.image" mode="aspectFill" />
     <view class="wrapper">
       <view class="name">
@@ -26,6 +26,10 @@ export default {
     item: {
       type: Object,
       required: true
+    },
+    inner: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -42,8 +46,6 @@ export default {
   padding: 30rpx;
   align-items: center;
   background: $white;
-  border-radius: 18rpx;
-  box-shadow: 0 0 14rpx 0 rgba(0, 0, 0, 0.1);
 
   .image {
     width: 140rpx;
@@ -75,5 +77,11 @@ export default {
       }
     }
   }
+}
+
+.inner {
+  border-radius: 0;
+  box-shadow: none;
+  padding: 30rpx 0;
 }
 </style>
